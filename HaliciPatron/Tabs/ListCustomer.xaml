@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HaliciPatron.Tabs.ListCustomer">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Müşteri Ara" PlaceholderColor="OrangeRed" TextChanged="SearchBar_OnTextChanged" />
+            <ScrollView VerticalOptions="FillAndExpand">
+                <ListView
+                    ItemsSource="{Binding .}"
+                    CachingStrategy="RecycleElement"
+                    IsPullToRefreshEnabled="True"
+                    HasUnevenRows="True"
+                    x:Name="LstCustomers">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Icon="delete.png" Text="Sil" x:Name="btnDelCustomer"
+                                              Clicked="BtnDelCustomer_OnClicked" />
+                                    <MenuItem Icon="order.png" Text="Sipariş Oluştur" x:Name="btnCreateOrder"
+                                              Clicked="BtnCreateOrder_OnClicked" />
+                                    <MenuItem Icon="edit.png" Text="Düzenle" x:Name="btnEdit"
+                                              Clicked="BtnEdit_OnClicked" />
+                                </ViewCell.ContextActions>
+                                <Frame>
+                                    <StackLayout Orientation="Vertical">
+                                        <StackLayout
+                                            HorizontalOptions="FillAndExpand"
+                                            Orientation="Horizontal">
+                                            <Label
+                                                VerticalTextAlignment="Center"
+                                                Text="Müşteri Adı : " TextColor="#EB7812" />
+                                            <Label
+                                                HorizontalOptions="FillAndExpand"
+                                                Text="{Binding CustomerName}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                        <StackLayout
+                                            Orientation="Vertical">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*" />
+                                                    <RowDefinition Height="*" />
+                                                </Grid.RowDefinitions>
+                                                <Label
+                                                    Grid.Row="0"
+                                                    VerticalTextAlignment="Center"
+                                                    TextColor="#EB7812"
+                                                    Text="Adres : " />
+                                                <Label
+                                                    VerticalOptions="FillAndExpand"
+                                                    Grid.Row="1"
+                                                    MaxLines="2"
+                                                    LineBreakMode="WordWrap"
+                                                    VerticalTextAlignment="Start"
+                                                    Text="{Binding Adress}" />
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label
+                                                VerticalTextAlignment="Center"
+                                                TextColor="#EB7812"
+                                                Text="Telefon Numarası : " />
+                                            <Label
+                                                Text="{Binding Phone}"
+                                                VerticalTextAlignment="Center" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+            <ActivityIndicator x:Name="bActivity"
+                               IsVisible="{Binding IsBusy}"
+                               IsRunning="{Binding IsBusy}"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

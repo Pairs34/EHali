@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HaliciPatron.Tabs.ListAllPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <Grid>
+                <ScrollView>
+                    <StackLayout>
+                        <SearchBar Placeholder="Müşteri Ara" PlaceholderColor="Red" TextChanged="SearchBar_TextChanged" />
+                        <ListView
+                            ItemsSource="{Binding .}"
+                            ItemSelected="LstCustomers_ItemSelected"
+                            CachingStrategy="RecycleElement"
+                            IsPullToRefreshEnabled="True"
+                            HasUnevenRows="True"
+                            x:Name="lstCustomers">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.ContextActions>
+                                            <MenuItem Icon="delete.png" Text="Sil" x:Name="btnDelete"
+                                                      Clicked="BtnDelete_OnClicked" />
+                                        </ViewCell.ContextActions>
+                                        <Frame
+                                            BackgroundColor="{Binding Durumu, Converter={StaticResource colorConverter}}">
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        Text="Müşteri Adı : " TextColor="#EB7812" />
+                                                    <Label
+                                                        Text="{Binding CustomerName}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Adres : " />
+                                                    <Label
+                                                        Text="{Binding Adress}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Telefon Numarası : " />
+                                                    <Label
+                                                        Text="{Binding Phone}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Metre Kare : " />
+                                                    <Label
+                                                        Text="{Binding MKare}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Fiyatı : " />
+                                                    <Label
+                                                        Text="{Binding Fiyat}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Müşteriden Alış Tarihi : " />
+                                                    <Label
+                                                        Text="{Binding MusteridenAlisTarihi}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label
+                                                        VerticalTextAlignment="Center"
+                                                        TextColor="#EB7812"
+                                                        Text="Teslimat Tarihi : " />
+                                                    <Label
+                                                        Text="{Binding TeslimTarihi}"
+                                                        VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                                <StackLayout
+                                                    Orientation="Vertical">
+                                                    <Grid>
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                                                        <Label
+                                                            Grid.Row="0"
+                                                            VerticalTextAlignment="Center"
+                                                            TextColor="#EB7812"
+                                                            Text="Açıklama : " />
+                                                        <Label
+                                                            VerticalOptions="FillAndExpand"
+                                                            Grid.Row="1"
+                                                            MaxLines="2"
+                                                            LineBreakMode="WordWrap"
+                                                            VerticalTextAlignment="Start"
+                                                            Text="{Binding Description}" />
+                                                    </Grid>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </ScrollView>
+                <ActivityIndicator x:Name="bActivity"
+                                   IsRunning="{Binding IsBusy}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HaliciPatron.Views.viewMenu">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Start">
+                <Image
+                    Source="xamarin.png"
+                    Aspect="AspectFit"
+                    HorizontalOptions="Center"
+                    HeightRequest="100"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <StackLayout>
+                <ListView
+                    x:Name="lstMenu"
+                    x:FieldModifier="public"
+                    ItemsSource="{Binding Menu}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Orientation="Vertical"
+                                    Padding="10" Spacing="20">
+                                    <StackLayout
+                                        Spacing="20"
+                                        Orientation="Horizontal">
+                                        <Image
+                                            Source="{Binding Icon}"
+                                            Aspect="AspectFit"
+                                            HorizontalOptions="Center"
+                                            HeightRequest="24"
+                                            VerticalOptions="Center" />
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout
+                Padding="0,0,0,30"
+                Orientation="Horizontal"
+                HeightRequest="20"
+                HorizontalOptions="Center"
+                VerticalOptions="End">
+                <Label Text="www.extremitysoft.com" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HaliciPatron.Tabs.frmCreateOrder">
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView>
+                <TableView Intent="Form">
+                    <TableRoot>
+                        <TableSection Title="Sipariş Kayıt" TextColor="#FF0000">
+                            <EntryCell x:Name="txtCustomerName" Label="Müşteri Adı" />
+                            <EntryCell x:Name="txtAdress" Label="Adres" />
+                            <EntryCell x:Name="txtPhone" Label="Telefon" Keyboard="Telephone" />
+                            <EntryCell x:Name="txtAdet" Label="Adet" Keyboard="Numeric" />
+                            <EntryCell x:Name="txtMKare" Label="M2" Keyboard="Numeric" />
+                            <EntryCell x:Name="txtFiyat" Label="Ücret" Keyboard="Numeric" />
+                            <EntryCell x:Name="txtAciklama" Label="Açıklama" Keyboard="Plain" />
+                            <ViewCell>
+                                <Button
+                                    Clicked="BtnSave_Clicked"
+                                    x:Name="btnSave"
+                                    Text="Kaydet"
+                                    BackgroundColor="#40D9F2"
+                                    FontAttributes="Bold"
+                                    TextColor="#F70808" />
+                            </ViewCell>
+                        </TableSection>
+                    </TableRoot>
+
+                </TableView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

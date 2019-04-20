@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HaliciPatron.Forms.frmCalculate">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                BackgroundColor="WhiteSmoke"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Padding="20, 20, 20, 20">
+                <TableView Intent="Form">
+                    <TableRoot>
+                        <TableSection Title="Maliyet Hesaplama" TextColor="#FF0000">
+                            <ViewCell>
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    Spacing="20">
+                                    <Label Text="Başlangıç Tarihi" />
+                                    <DatePicker />
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    Spacing="20">
+                                    <Label Text="Bitiş Tarihi" />
+                                    <DatePicker />
+                                </StackLayout>
+                            </ViewCell>
+                            <ViewCell>
+                                <Button Text="Hesapla" />
+                            </ViewCell>
+                            <TextCell Text="Toplam Yıkanan Halı" Detail="" />
+                            <TextCell Text="Toplam Kazanç" Detail="" />
+                        </TableSection>
+                    </TableRoot>
+                </TableView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

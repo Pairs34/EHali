@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.extremitysoft.Halici"
+          android:installLocation="preferExternal" android:versionCode="1" android:versionName="1.11">
+  <uses-sdk android:minSdkVersion="20" android:targetSdkVersion="27" />
+  <application android:label="EHali" android:icon="@drawable/xamarin"></application>
+</manifest>
